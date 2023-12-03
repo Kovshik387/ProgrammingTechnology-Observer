@@ -1,18 +1,18 @@
 package observerComponents;
 
-import observerComponents.Infastructure.IObserver;
-import observerComponents.Infastructure.Subject;
+import observerComponents.Infastructure.Observable;
+import observerComponents.Infastructure.Observer;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
-public class TimeServer implements IObserver {
+public class TimeServer implements Observable {
+    private List<Observer> observers;
     private Timer timer;
     private TimerTask task;
     private Date currentDate;
-
     public TimeServer(){
+        observers = new ArrayList<>();
+
         currentDate = new Date();
         this.timer = new Timer();
         task = new TimerTask() {
@@ -24,12 +24,23 @@ public class TimeServer implements IObserver {
         timer.schedule(task,currentDate,1);
     }
     private void tick(){
-        currentDate.setTime(1);
+
     }
+
     @Override
-    public void update() {
-
+    public void notifyAllObserver() {
+        for(var item : observers){
+           item.update();
+        }
     }
 
+    @Override
+    public void attach(Observer obs) {
+        observers.add(obs);
+    }
 
+    @Override
+    public void detach(Observer obs) {
+        observers.remove(obs);
+    }
 }

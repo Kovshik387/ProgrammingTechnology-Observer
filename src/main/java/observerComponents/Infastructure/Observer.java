@@ -1,5 +1,5 @@
 package observerComponents.Infastructure;
 
-public interface IObserver {
+public interface Observer {
     public abstract void update();
 }

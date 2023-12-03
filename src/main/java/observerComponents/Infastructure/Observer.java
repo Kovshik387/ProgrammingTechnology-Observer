@@ -1,5 +1,7 @@
 package observerComponents.Infastructure;
 
+import java.util.Date;
+
 public interface Observer {
-    public abstract void update();
+    public abstract void update(Date date);
 }

@@ -3,34 +3,39 @@ package observerComponents;
 import observerComponents.Infastructure.Observable;
 import observerComponents.Infastructure.Observer;
 
+import java.time.LocalTime;
 import java.util.*;
 
 public class TimeServer implements Observable {
-    private List<Observer> observers;
+    private final List<Observer> observers;
     private Timer timer;
     private TimerTask task;
     private Date currentDate;
     public TimeServer(){
-        observers = new ArrayList<>();
-
-        currentDate = new Date();
+        this.currentDate = new Date();
+        this.observers = new ArrayList<>();
         this.timer = new Timer();
-        task = new TimerTask() {
+        this.task = new TimerTask() {
             @Override
             public void run() {
                 tick();
             }
         };
-        timer.schedule(task,currentDate,1);
+
+        this.timer.schedule(task,currentDate,1200);
     }
     private void tick(){
-
+        var temp_date = Calendar.getInstance();
+        temp_date.add(Calendar.SECOND, 1);
+        currentDate = temp_date.getTime();
+        System.out.println(currentDate);
+        notifyAllObserver();
     }
 
     @Override
     public void notifyAllObserver() {
         for(var item : observers){
-           item.update();
+           item.update(currentDate);
         }
     }
 

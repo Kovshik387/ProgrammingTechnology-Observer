@@ -17,6 +17,10 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <StackPane fx:id="ImagePane" prefHeight="200.0" prefWidth="200.0" />
+            <BorderPane fx:id="TimerText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+         </children>
       </GridPane>
    </children>
 </VBox>

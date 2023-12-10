@@ -1,5 +1,6 @@
 package com.example.programmingtechnologyobserver;
 
+import MediaPlayerComponents.MediaPlayerComponent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,7 +11,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 1020, 240);
         stage.setTitle("Observable");
         stage.setScene(scene);
         stage.show();

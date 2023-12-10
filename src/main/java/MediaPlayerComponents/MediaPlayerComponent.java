@@ -14,6 +14,7 @@ public class MediaPlayerComponent implements Observer {
     private final MediaView mediaView;
     public MediaPlayerComponent() throws MalformedURLException {
         String url = new File("src//main//resources//videos//video.mp4").toURI().toURL().toString();
+
         mediaPlayer = new MediaPlayer(new Media(url));
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();

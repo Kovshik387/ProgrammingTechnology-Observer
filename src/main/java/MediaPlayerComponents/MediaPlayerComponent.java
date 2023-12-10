@@ -3,7 +3,6 @@ package MediaPlayerComponents;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
 import observerComponents.Infastructure.Observer;
 
 import java.io.File;

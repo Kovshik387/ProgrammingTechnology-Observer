@@ -26,12 +26,12 @@ public class MediaPlayerComponent implements Observer {
 
     @Override
     public void update(Date date) {
-        if (date.getSeconds() % 15 == 0){
+        if (date.getSeconds() % 35 == 0){
             this.mediaPlayer.pause();
             System.out.println("Video stop");
         }
         else if
-        (date.getSeconds() % 35 == 0){
+        (date.getSeconds() % 15 == 0){
             this.mediaPlayer.play();
             System.out.println("Video start");
         }

@@ -8,8 +8,8 @@ import java.util.Date;
 public class ClockComponent implements Observer {
     private final Text text = new Text();
     @Override
-    public void update(Date date) {
-        text.setText(date.toString());
+    public void update() {
+        text.setText(date.toString());// выводит время с момента запуска в собственных единицах
     }
 
     public Text getClock(){

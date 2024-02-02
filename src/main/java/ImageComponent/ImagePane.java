@@ -9,6 +9,8 @@ import javafx.util.Duration;
 import model.Meme;
 import observerComponents.Infastructure.Observer;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 public class ImagePane implements Observer {
     private MemeDirector memeDirector;
@@ -29,8 +31,9 @@ public class ImagePane implements Observer {
         return meme.getPanel();
     }
     @Override
-    public void update(Date date) {
-        if (date.getSeconds() % 5 == 0){
+    public void update() {
+        var date = new SimpleDateFormat("HH:mm:ss");
+        if (date.getCalendar().get(Calendar.SECOND) % 5 == 0){
             fade.setDuration(new Duration(1200));
             fade.setFromValue(0.0);
             fade.setToValue(1.0);

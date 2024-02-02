@@ -35,7 +35,7 @@ public class TimeServer implements Observable {
     @Override
     public void notifyAllObserver() {
         for(var item : observers){
-           item.update(currentDate);
+           item.update();
         }
     }
 
